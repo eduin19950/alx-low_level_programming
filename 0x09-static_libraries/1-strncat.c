@@ -1,38 +1,31 @@
-/**
- * _strlen - return length of a string
- *
- * @s: char type
- * Return:  length of string
- */
-
-int _strlen(char *s)
-{
-	int b;
-
-	for (b = 0; s[b] != '\0'; b++)
-	{
-
-	}
-	return (b);
-}
+#include "main.h"
 
 /**
- * _strncat - function to concatnate strings with n bytes
+ * _strncat - concatenates n bytes from a string to another
+ * @dest: destination string
+ * @src: source string
+ * @n: number of bytes of str to concatenate
  *
- * @dest: destination for concatnation
- *
- * @src: source of string
- * @n: int type for size of byte
- * Return: dest
+ * Return: a pointer to the resulting string dest
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
-	int dest_len;
-	int a;
+	int i, j;
 
-	dest_len = _strlen(dest);
-	for (a = 0; a < n && src[a] != '\0'; a++)
-		dest[dest_len + a] = src[a];
+	i = 0;
+	j = 0;
+
+	while (dest[i] != '\0')
+		i++;
+
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+
+	dest[i] = '\0';
+
 	return (dest);
 }
